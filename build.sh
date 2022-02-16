@@ -13,4 +13,6 @@ mv keycloak-${KEYCLOAK_VERSION} keycloak
 rm keycloak-${KEYCLOAK_VERSION}.zip
 echo "Keycloak ${KEYCLOAK_VERSION} downloaded and unzipped successfuly"
 
+cp quarkus.properties keycloak/conf/
+
 keycloak/bin/kc.sh build --db postgres --metrics-enabled ${KEYCLOAK_METRICS}
