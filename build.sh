@@ -5,7 +5,7 @@ if [[ -z "${KEYCLOAK_VERSION}" ]]; then
   exit 1
 fi
 
-wget -quiet https://github.com/keycloak/keycloak/releases/download/${KEYCLOAK_VERSION}/keycloak-${KEYCLOAK_VERSION}.zip
+wget -q https://github.com/keycloak/keycloak/releases/download/${KEYCLOAK_VERSION}/keycloak-${KEYCLOAK_VERSION}.zip
 unzip keycloak-${KEYCLOAK_VERSION}.zip
 mv keycloak-${KEYCLOAK_VERSION} keycloak
 rm keycloak-${KEYCLOAK_VERSION}.zip
