@@ -26,6 +26,8 @@ admin access (as it can only be done locally) : `admin` / `clever`. Once it has 
 
 Although the application will boot this way, it will not be usable with the default `*.cleverapps.io` (only the server home page will be available). You need to set up your own domain name in the application configuration (on CleverCloud) and the change the `KEYCLOAK_HOSTNAME` environment variable.
 
+Finally, adapt the `quarkus.properties` file according to the database plan you choose. By default, it's been configured for the DEV plan (limited to 5 connections).
+
 ## FYI
 
 The __Java + JAR__ is used to get a dedicated Java runtime, but we do not use any Keycloak JAR to start the server. We use the dedicated Keycloak shell script for starting the server. But as that Runtime first check for the definition and the existence of a JAR file, an empty one has been set up in the `clevercloud` folder.
