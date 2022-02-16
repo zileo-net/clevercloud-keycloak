@@ -10,7 +10,6 @@ unzip -q keycloak-${KEYCLOAK_VERSION}.zip
 mv keycloak-${KEYCLOAK_VERSION} keycloak
 rm keycloak-${KEYCLOAK_VERSION}.zip
 
-ls keycloak/bin
 echo "Keycloak ${KEYCLOAK_VERSION} downloaded successfuly"
 
 keycloak/bin/kc.sh build --db postgres --metrics-enabled ${KEYCLOAK_METRICS}
