@@ -6,11 +6,11 @@ if [[ -z "${KEYCLOAK_VERSION}" ]]; then
 fi
 
 wget -q https://github.com/keycloak/keycloak/releases/download/${KEYCLOAK_VERSION}/keycloak-${KEYCLOAK_VERSION}.zip
-unzip keycloak-${KEYCLOAK_VERSION}.zip
+unzip -q keycloak-${KEYCLOAK_VERSION}.zip
 mv keycloak-${KEYCLOAK_VERSION} keycloak
 rm keycloak-${KEYCLOAK_VERSION}.zip
 
-ls keycloak
+ls keycloak/bin
 echo "Keycloak ${KEYCLOAK_VERSION} downloaded successfuly"
 
 #keycloak/bin/kc.sh build
