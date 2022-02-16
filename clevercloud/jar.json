@@ -1,5 +1,5 @@
 {
   "deploy": {
-    "jarName": ""
+    "jarName": "clevercloud/empty.jar"
   }
 }
