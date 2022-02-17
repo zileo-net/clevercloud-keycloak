@@ -13,6 +13,14 @@ mv keycloak-${KEYCLOAK_VERSION} keycloak
 rm keycloak-${KEYCLOAK_VERSION}.zip
 echo "Keycloak ${KEYCLOAK_VERSION} downloaded and unzipped successfuly"
 
-cp quarkus.properties keycloak/conf/
+# Load the database driver, depending on the addon linked
+if [[ -z "${POSTGRESQL_ADDON_HOST}" ]]; then
+	KC_DB="postgres"
+fi
 
-keycloak/bin/kc.sh build --db postgres --metrics-enabled ${KEYCLOAK_METRICS}
+
+if [[ -z "${MYSQL_ADDON_HOST}" ]]; then
+	KC_DB="mysql"
+fi
+
+keycloak/bin/kc.sh build
