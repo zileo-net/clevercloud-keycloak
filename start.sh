@@ -1,7 +1,19 @@
-hostname="${KEYCLOAK_HOSTNAME}"
+#!/bin/bash
 
-if [[ -z "$hostname" ]]; then
-	hostname="${APP_ID}.cleverapps.io"
+# If the hostname is not defined, we remove the strict hostname feature.
+# For production, you must define KC_HOSTNAME variable
+if [[ -z "${KC_HOSTNAME}" ]]; then
+	KC_HOSTNAME_STRICT="false"
 fi
 
-keycloak/bin/kc.sh start --hostname $hostname --db-url 'jdbc:postgresql://${POSTGRESQL_ADDON_HOST}:${POSTGRESQL_ADDON_PORT}/${POSTGRESQL_ADDON_DB}' --db-username ${POSTGRESQL_ADDON_USER} --db-password ${POSTGRESQL_ADDON_PASSWORD} --proxy edge
+# Check if a postgres or mysql addon is linked to this application, in order to get the URI of database
+if [[ -z "${POSTGRESQL_ADDON_HOST}" ]]; then
+	KC_DB_URL="jdbc:${POSTGRESQL_ADDON_HOST}"
+fi
+
+if [[ -z "${MYSQL_ADDON_HOST}" ]]; then
+	KC_DB_URL="jdbc:${MYSQL_ADDON_HOST}"
+fi
+
+
+keycloak/bin/kc.sh start --proxy edge
