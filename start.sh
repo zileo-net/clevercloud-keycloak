@@ -3,7 +3,7 @@
 # If the hostname is not defined, we remove the strict hostname feature.
 # For production, you must define KC_HOSTNAME variable
 if [[ -z "${KC_HOSTNAME}" ]]; then
-	KC_STRICT_HOSTNAME="false"
+	KC_HOSTNAME_STRICT="false"
 fi
 
 # Check if a postgres or mysql addon is linked to this application, in order to get the URI of database
