@@ -10,21 +10,23 @@ This project allows you to deploy a Keycloak server on CleverCloud without using
 1. Copy the following environment variable in expert mode :
 
 ```
-KC_FEATURES=token-exchange
+KEYCLOAK_VERSION="18.0.0"
 KEYCLOAK_ADMIN=admin
 KEYCLOAK_ADMIN_PASSWORD=password
+KC_FEATURES=token-exchange
 KC_METRICS_ENABLED=true
 KC_HTTP_PORT=8080
-CC_JAR_PATH=./keycloak/lib/quarkus-run.jar
 KC_DB_POOL_INITIAL_SIZE=1
 KC_DB_POOL_MIN_SIZE=1
 KC_DB_POOL_MAX_SIZE=5
+CC_JAR_PATH=./keycloak/lib/quarkus-run.jar
 CC_JAVA_VERSION="11"
 CC_METRICS_PROMETHEUS_PORT=8080
 CC_PRE_BUILD_HOOK="./build.sh"
 CC_RUN_COMMAND="./start.sh"
-KEYCLOAK_VERSION="17.0.0"
 ```
+
+You can check for the last Keycloak version [here](https://github.com/keycloak/keycloak/releases).
 
 First of all, adapt the `KC_DB_POOL_INITIAL_SIZE`, `KC_DB_POOL_MIN_SIZE`, `KC_DB_POOL_MAX_SIZE` variables according to the database plan you choose. By default, it's been configured for the DEV plan (limited to 5 connections).
 
