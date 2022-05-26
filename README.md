@@ -1,6 +1,6 @@
 # CleverCloud Keycloak template
 
-This project allows you to deploy a Keycloak server on [CleverCloud](https://www.clever-cloud.com) without using any container.
+This project allows you to deploy a [Keycloak](https://www.keycloak.org) server on [CleverCloud](https://www.clever-cloud.com) without using any container.
 
 ## Deployment instructions
 
